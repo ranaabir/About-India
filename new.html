@@ -1,0 +1,676 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>India</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .map {
+          align-self: ;
+            width: 60%;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .text {
+            width: 35%;
+            margin: 10px;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+    </style>
+    <style>
+  .image-overlay img {
+  max-width: 100%; /* make the image as wide as the container */
+  max-height: 100%; /* make the image as tall as the container */
+  object-fit: cover;
+}
+  }
+  .image-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:transparent; /* adjust the overlay background color and opacity */
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .overlay h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .overlay p {
+    font-size: 16px;
+  }
+</style>
+<style>
+    .festival-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.festival-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.festival-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.festival-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.festival-item h2 {
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.festival-item p {
+  font-size: 16px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .festival-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .festival-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.national-parks-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.national-parks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.national-park-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.national-park-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.national-park-item h2 {
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.national-park-item p {
+  font-size: 16px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .national-parks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .national-parks-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.national-things-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.national-things-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.national-thing-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.national-thing-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.national-thing-item h2 {
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.national-thing-item p {
+  font-size: 16px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+ .national-things-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+ .national-things-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+</style>
+     <style>
+    /* Add some basic styling to make it look nice */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      overflow: hidden;
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 20px;
+    }
+    .card {
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+      background-color: #f7f7f7;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  </style>
+  <style>
+.India-info-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.image-container {
+  flex-basis: 40%;
+  margin: 20px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.text-container {
+  flex-basis: 50%;
+  margin: 20px;
+}
+
+.text-container h2 {
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.text-container p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .India-info-container {
+    flex-direction: column;
+  }
+  .image-container {
+    flex-basis: 100%;
+  }
+  .text-container {
+    flex-basis: 100%;
+  }
+}
+.famous-people-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.famous-people-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.famous-person-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.famous-person-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.famous-person-item h2 {
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.famous-person-item p {
+  font-size: 16px;
+  color: #666;
+}
+
+@media
+    </style>
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+<style>
+    h1 {
+  font-family: 'Rubik Wet Paint', cursive;
+  font-size: 36px;
+  color: #333;
+}
+</style>
+</head>
+<body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></body>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">India</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Explore
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</body>
+<body>
+<div class="image-overlay">
+  <img src="https://wallpapergod.com/images/hd/india-2880X1800-wallpaper-zzf2zw5his7t0jr1.jpeg" alt="Image">
+  <div class="overlay">
+    <p style="font-family: Rubik Wet Paint; font-size: 200px;">India</p>
+  </div>
+</div>
+</body>
+<body>
+<div class="India-info-container">
+  <div class="image-container">
+    <img src="https://wallpapergod.com/images/hd/india-2560X1600-wallpaper-4hc8ow1n8mbaminz.jpeg" alt="India Image">
+  </div>
+  <div class="text-container">
+    <h2>About India</h2>
+    <p>India, officially the Republic of India, is located in South Asia. It is the seventh-largest country by area and the most populous country in the world as of June 2023. Bounded by the Indian Ocean on the south, the Arabian Sea on the southwest, and the Bay of Bengal on the southeast, it shares land borders with Pakistan, China, Nepal, Bhutan, Bangladesh, and Myanmar.</p>
+    <p>India is a federal parliamentary republic with New Delhi as its capital. The President of India is Droupadi Murmu, and the Prime Minister is Narendra Modi. The country is known for its rich cultural heritage and diversity, with 22 officially recognized languages, including Hindi and English. Major religions practiced in India include Hinduism, Islam, Christianity, Sikhism, Buddhism, and Jainism. The country celebrates numerous festivals such as Diwali, Holi, Eid, and Christmas.</p>
+    <p>India is famous for its historical landmarks, including the Taj Mahal in Agra, which is one of the Seven Wonders of the World. The country also boasts numerous forts, palaces, and temples with rich architectural heritage. Additionally, India is known for its diverse landscapes, ranging from the Himalayan mountain range in the north to the coastal regions in the south, offering a variety of natural beauty and biodiversity.</p>
+  </div>
+</div>
+</body>
+<body>
+  <div class="container">
+    <div class="text">
+      <h2>Why Should You Visit India?</h2>
+      <p>India is a land of incredible diversity and rich cultural heritage, offering a unique blend of ancient traditions and modern experiences. From the majestic Himalayas in the north to the serene backwaters of Kerala in the south, India’s landscapes are as varied as its people. Visitors can explore historical landmarks like the Taj Mahal, indulge in the vibrant flavors of Indian cuisine, and immerse themselves in the country’s spiritual and cultural festivals. Whether you’re seeking adventure, relaxation, or a deeper understanding of spirituality, India’s warm hospitality and myriad attractions make it a destination like no other.</p>
+    </div>
+    <div class="image">
+      <img src="https://images.pexels.com/photos/15710176/pexels-photo-15710176/free-photo-of-close-up-of-kutb-minar.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+    </div>
+    <div class="image">
+      <img src="https://images.news18.com/ibnlive/uploads/2024/02/gateway-of-india-tipl-1-1-2024-02-137d493e022f655d969c4e2464433199.jpg?impolicy=website&width=640&height=480" alt="Bhaktapur City">
+    </div>
+</body>
+<body>
+    <div class="festival-container">
+  <h1>Festivals of India</h1>
+  <div class="festival-grid">
+    <div class="festival-item">
+      <img src="https://cdn.britannica.com/57/244757-050-CADDB530/Hindu-Holi-Festival-Mathura-Uttar-Pradesh-India.jpg" alt="Holi">
+      <h2>Holi</h2>
+      <p> Also known as the Festival of Love or the Festival of Color, Holi is a night and day celebration that marks the triumph of good over evil. It's filled with singing, playing, and water bombs, and often begins with a bonfire on the first evening.</p>
+    </div>
+    <div class="festival-item">
+      <img src="https://cdn.britannica.com/99/155499-050-864E622E/oil-lamps.jpg" alt="Diwali">
+      <h2>Diwali</h2>
+      <p>Also known as Deepawali, this five-day festival is celebrated by Hindus, Jains, Sikhs, and some Buddhists between October and November. It marks different historical events and stories for each religion, such as the return of Rama and Sita to Ayodhya after exile, and the defeat of Mahisha by the Mother Goddess Durga.</p>
+    </div>
+    <div class="festival-item">
+      <img src="https://img.etimg.com/thumb/msid-93770377,width-650,height-488,imgsize-224790,resizemode-75/lord-ganesha.jpg" alt="Ganesh Chaturthi">
+      <h2>Holi Festival</h2>
+      <p>This festival honors Lord Ganesh, the remover of obstacles, and celebrates his birth. It's celebrated in August or September in the states of Goa, Maharashtra, Chhattisgarh, and Gujarat, with the setting up of pandals featuring idols of Ganesha and cultural activities.</p>
+    </div>
+    <div class="festival-item">
+      <img src="https://images.moneycontrol.com/static-mcnews/2019/10/Durga-Puja-2-1-770x433.jpg?impolicy=website&width=770&height=431" alt="Durga Puja">
+      <h2>Durga Puja</h2>
+      <p>Durga Puja, also known as Durgotsava or Sharodotsav, is an annual festival originating in the Indian subcontinent which reveres and pays homage to the Hindu goddess Durga, and is also celebrated because of Durga's victory over Mahishasura.</p>
+    </div>
+    <div class="festival-item">
+      <img src="https://cdn.zeebiz.com/hindi/sites/default/files/2024/01/14/167135-untitled-design-40.png?im=FitAndFill=(1200,900)" alt="Makar Sankranti">
+      <h2>Makar Sankranti</h2>
+      <p>Makar Sankranti, also referred to as Uttarayana, Makar, or simply Sankranti, is a Hindu observance and a festival. Usually falling on the date of 14 January annually, this occasion marks the transition of the sun from the zodiac of Sagittarius to Capricorn.</p>
+    </div>
+    <div class="festival-item">
+      <img src="https://www.jagranimages.com/images/newimg/07082024/07_08_2024-raksha_bandhan_gifts_for_sister_23773570.jpg" alt="Raksha Bandhan">
+      <h2>Raksha Bandhan</h2>
+      <p>Celebrates the bond between brothers and sisters, where sisters tie a protective thread around their brothers’ wrists, and brothers give gifts in return.</p>
+    </div>
+  </div>
+</div>
+</body>
+<body>
+<!-- HTML -->
+<div class="national-parks-container">
+  <h1>National Parks of India</h1>
+  <div class="national-parks-grid">
+    <div class="national-park-item">
+      <img src="https://static.wanderon.in/wp-content/uploads/2024/05/kaziranga-national-park-closing-date-min.jpg" alt="Kaziranga National Park (Assam)">
+      <h2>Kaziranga National Park (Assam)</h2>
+      <p>Kaziranga National Park famous for its one-horned Rhinoceros is located in Golaghat, Nagaon and Sonitpur districts of Assam. Kaziranga was designated a UNESCO World Heritage site in 1985. The park has an area of some 430 square km and lies between the Brahmaputra River and the Karbi (Mikir) Hills.</p>
+    </div>
+    <div class="national-park-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Bengal-Tiger_Corbett_Uttarakhand_Dec-2013.jpg/426px-Bengal-Tiger_Corbett_Uttarakhand_Dec-2013.jpg" alt="Jim Corbett National Park (Uttarakhand)">
+      <h2>Jim Corbett National Park (Uttarakhand)</h2>
+      <p>It is named after the legendary naturalist and conservationist Jim Corbett. Located at the Himalayas' foothills, near the popular hill-station of Nainital, the beautiful Jim Corbett National Park, is famous for being home to a large number of tigers, the highest among any Indian national park.</p>
+    </div>
+    <div class="national-park-item">
+      <img src="https://www.sunderbannationalpark.in/wp-content/uploads/2020/02/banner2.jpg" alt="Sundarbans National Park (West Bengal)">
+      <h2>Sundarbans National Park (West Bengal)</h2>
+      <p>Sundarbans National Park is a large coastal mangrove forest, shared by India and Bangladesh. The area is home to the Royal Bengal tiger, plus other endangered species such as the estuarine crocodile and Ganges River dolphin. Boats from Khulna city travel south along the river to a quiet mangrove beach at Kotka. Here, a watchtower offers views of the forest and its birds and animals.</p>
+    </div>
+    <div class="national-park-item">
+      <img src="https://img.jagranjosh.com/imported/images/E/GK/lion-gir-national-park.webp" alt="Gir National Park (Gujarat)">
+      <h2>Gir National Park (Gujarat)</h2>
+      <p>Gir National Park in Gujarat, India is famous for its Asiatic lions and other wildlife, including sambar deer, leopards, elephants, and tigers. Some say it's one of the best wildlife sanctuaries in India, and others mention learning about the area's culture.</p>
+      <p>The park is also home to the largest dry deciduous forest in western India, which includes dry deciduous scrub forests and dry savannah forests known as "vidis". Visitors can enjoy activities like hiking, walking, and picnics, and there are also nature and wildlife tours and historical tours available.</p>
+    </div>
+    <div class="national-park-item">
+      <img src="https://i.pinimg.com/564x/a4/b5/8f/a4b58f467bd86d0ee038522bb3bff046.jpg" alt="Ranthambore National Park (Rajasthan)">
+      <h2>Ranthambore National Park (Rajasthan)</h2>
+      <p>Ranthambore National Park is a vast wildlife reserve near the town of Sawai Madhopur in Rajasthan, northern India. It is a former royal hunting ground and home to tigers, leopards and marsh crocodiles. Its landmarks include the imposing 10th-century Ranthambore Fort, on a hilltop, and the Ganesh Mandir temple. Also in the park, Padam Talao Lake is known for its abundance of water lilies.</p>
+    </div>
+    <div class="national-park-item">
+      <img src="https://ihplb.b-cdn.net/wp-content/uploads/2017/04/Boating-in-Periyar-Lake.jpg" alt="Periyar National Park (Kerala)">
+      <h2>Periyar National Park (Kerala)</h2>
+      <p>Periyar National Park, also known as Periyar Tiger Reserve, is in the mountainous Western Ghats of Kerala, southern India. This wildlife sanctuary is home to tigers and a significant elephant population, as well as rare lion-tailed macaques, sambar deer, leopards and Indian bison. In the park's north, Periyar Lake is popular for boat rides. Farther north, spice plantations surround the town of Kumily..</p>
+    </div>
+  </div>
+</div>
+</body>
+<body>
+<div class="national-things-container">
+  <h1>National things of India</h1>
+  <div class="national-things-grid">
+    <div class="national-thing-item">
+      <img src="https://5.imimg.com/data5/SELLER/Default/2023/6/320145536/UJ/BL/QH/810622/indian-national-flag-1000x1000.webp" alt="Flag of India">
+      <h2>Flag of India</h2>
+      <p>The national flag of India, colloquially called Tiraṅgā (the tricolour), is a horizontal rectangular tricolour flag, the colours being of India saffron, white and India green; with the Ashoka Chakra, a 24-spoke wheel, in navy blue at its centre.</p>
+    </div>
+    <div class="national-thing-item">
+      <img src="https://i.pinimg.com/564x/37/42/bc/3742bcd3b4b5d471dae27a60bd4b5f07.jpg" alt="National Emblem">
+      <h2>National Emblem</h2>
+      <p>A national emblem is a seal or emblem that represents a nation or multi-national state. Many countries use a national emblem in addition to a national flag. The national emblem of India is the State Emblem of India, which is based on the Lion Capital of Ashoka.</p>
+    </div>
+    <div class="national-thing-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/archive/9/91/20151120152236%21Rabindranath_Tagore_in_1909.jpg" alt="National Anthem">
+      <h2>National Anthem</h2>
+      <p>“Jana Gana Mana,” composed by Rabindranath Tagore1.</p>
+    </div>
+    <div class="national-thing-item">
+      <img src="https://www.statecouncil.in/wp-content/uploads/2019/04/animal.jpg" alt="National Animal">
+      <h2>National Animal</h2>
+      <p>The national animal of India is the Bengal tiger (Panthera tigris), which was officially announced in April 1973. The tiger was chosen because it represents the country's rich wildlife and is known for its strength, agility, grace, and power. The Indian subspecies of tiger, the Royal Bengal Tiger, can be found throughout India, except in the northwest, as well as in neighboring countries like Nepal, Bhutan, and Bangladesh.</p>
+    </div>
+    <div class="national-thing-item">
+      <img src="https://images.news18.com/ibnlive/uploads/2022/07/mango-16583304614x3.jpg?impolicy=website&width=640&height=480" alt="National Fruit">
+      <h2>National Fruit</h2>
+      <p>Mango (Mangifera indica), often known as the King of Fruits, is India's national fruit. Since time immemorial, its sweet scent and exquisite flavours have captured the hearts of countless people all over the world.</p>
+    </div>
+  </div>
+</div>
+            </body>
+<body>
+<div class="famous-people-container">
+  <h1>Famous Identities of India</h1>
+  <div class="famous-people-grid">
+    <div class="famous-person-item">
+      <img src="https://www.bing.com/th?id=OSK.HERO71252D3A1FF9D12D20742E7175C90F09BEE79845&pid=cdx&w=200&h=118&c=7" alt="Mahatma Gandhi">
+      <h2>Mahatma Gandhi</h2>
+      <p>Known as the Father of the Nation, he led India to independence through non-violent civil disobedience1.</p>
+    </div>
+    <div class="famous-person-item">
+      <img src="https://th.bing.com/th/id/OIP.nJ9lKl5-URWCnIG6lrYjaQHaKT?rs=1&pid=ImgDetMain" alt="Rabindranath Tagore">
+      <h2>Rabindranath Tagore</h2>
+      <p> A Nobel laureate in Literature, he composed India’s national anthem and made significant contributions to poetry, music, and education.</p>
+    </div>
+    <div class="famous-person-item">
+      <img src="https://www.bing.com/th?id=OSK.HEROibdMxSxDemOJHXg-Y4ybLhkF3STSE_vbxWiyxTI0no4&pid=cdx&w=200&h=118&c=7" alt="A.P.J. Abdul Kalam">
+      <h2>A.P.J. Abdul Kalam</h2>
+      <p> The 11th President of India and an esteemed aerospace scientist, known as the "Missile Man of India.</p>
+    </div>
+    <div class="famous-person-item">
+      <img src="data:image/webp;base64,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" alt="Mother Teresa">
+      <h2>Mother Teresa</h2>
+      <p>A Roman Catholic nun and missionary who founded the Missionaries of Charity and received the Nobel Peace Prize for her humanitarian work.</p>
+    </div>
+    <div class="famous-person-item">
+      <img src="https://www.bing.com/th?id=OSK.HEROz4oxSW5WOtCeBJMzURj7F3InG3DrLqtkMgUwMFDZZZQ&pid=cdx&w=200&h=128&c=7" alt="Sundar Pichai">
+      <h2>Sundar Pichai</h2>
+      <p>The CEO of Google and Alphabet Inc., he is a prominent figure in the tech industry</p>
+    </div>
+    <div class="famous-person-item">
+      <img src="data:image/webp;base64,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" alt="Dr. B.R. Ambedkar">
+      <h2>Dr. B.R. Ambedkar</h2>
+      <p>The principal architect of the Indian Constitution and a champion for social justice and equality.</p>
+    </div>
+    <div class="famous-person-item">
+      <img src="https://www.bing.com/th?id=OSK.HEROpn2Qd-obqWYEAQPgakhbw6Y60fRDaZ4O50RyWCjXg6Q&pid=cdx&w=200&h=128&c=7" alt="Narendra Modi">
+      <h2>Narendra Modi</h2>
+      <p>The current Prime Minister of India, recognized for his impactful leadership and global influence.</p>
+    </div>
+  </div>
+</div>
+</body>
+<body>
+    <style>.card-container {
+  overflow-x: auto;
+  padding: 20px;
+}
+
+.card-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.card {
+  margin: 20px;
+  width: 250px;
+  height: 300px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card:hover {
+  transform: translateZ(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+}
+
+.card-content h2 {
+  margin-top: 0;
+}
+
+.card-content p {
+  font-size: 16px;
+  color: #666;
+}
+
+</style>
+    <div class="card-container">
+  <div class="card-scroll">
+    <!-- Card 1 -->
+    <div class="card">
+      <img src="https://www.bing.com/th?id=OSK.HEROqhoWfW-Rr5txGJcvJ02Ro6GMRrz6aY-NCc_XBp5-Two&pid=cdx&w=200&h=118&c=7" alt="Image 1">
+      <div class="card-content">
+        <h2>Agra</h2>
+        <p>Home to the iconic Taj Mahal, a symbol of love and one of the Seven Wonders of the World1.</p>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="card">
+      <img src="https://www.bing.com/th?id=OSK.HEROgbGsuU_8dGo9r_W1HPWwl8FoeOpOqWAnzldrLPh1PEU&pid=cdx&w=200&h=118&c=7" alt="Image 2">
+      <div class="card-content">
+        <h2>Varanasi</h2>
+        <p>Known for its spiritual significance, this ancient city on the banks of the Ganges River offers a profound cultural experience.</p>
+      </div>
+    </div><div class="card">
+      <img src="https://www.bing.com/th?id=OSK.HEROSb815kNvU5NVDooJk_pMQ28T6wdHlYESI4RY6rscV6o&pid=cdx&w=200&h=118&c=7" alt="Image 2">
+      <div class="card-content">
+        <h2>Goa</h2>
+        <p>Famous for its stunning beaches, vibrant nightlife, and Portuguese heritage.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.bing.com/th?id=OSK.HERO3OVKJPkCxvVgAe8BkyEFc1aJD0NTWvLOR2cJLz-f4KI&pid=cdx&w=200&h=118&c=7" alt="Image 2">
+      <div class="card-content">
+        <h2>Kerala</h2>
+        <p>Known as “God’s Own Country,” Kerala offers serene backwaters, lush landscapes, and rich cultural traditions3</p>
+      </div>
+    </div><div class="card">
+      <img src="https://www.bing.com/th?id=OSK.HEROoGAxGJntuKl9M75s6jo3g_pAuPR2OxPnYxP2k41hUjI&pid=cdx&w=200&h=118&c=7" alt="Image 2">
+      <div class="card-content">
+        <h2>Rajasthan</h2>
+        <p>Explore the royal palaces, forts, and vibrant culture in cities like Jaipur, Udaipur, and Jaisalmer.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
